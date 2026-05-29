@@ -20,14 +20,14 @@ function App() {
   }, [token]);
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://localhost:5000/api/tasks");
+    const res = await axios.get("https://task-manager-y14c.onrender.com/api/tasks");
     setTasks(res.data);
   };
 
   const register = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://task-manager-y14c.onrender.com/api/auth/register",
         {
           name,
           email,
@@ -45,7 +45,7 @@ function App() {
   const login = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://task-manager-y14c.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -67,7 +67,7 @@ function App() {
   const addTask = async () => {
     if (!title) return;
 
-    await axios.post("http://localhost:5000/api/tasks", {
+    await axios.post("https://task-manager-y14c.onrender.com/api/tasks", {
       title,
       status: "Pending",
       priority: "Medium",
@@ -78,7 +78,7 @@ function App() {
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    await axios.delete(`https://task-manager-y14c.onrender.com/api/tasks/${id}`);
     fetchTasks();
   };
 
